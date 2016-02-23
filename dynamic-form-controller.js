@@ -17,3 +17,16 @@ $("#choice").on("change", function(){
     $("#dynamic-text").html(data[cho].text);
     $("#dynamic-link").html('<a href="' + data[cho].link + '">' + data[cho].linkText + "</a>");
 });
+
+$(function(){
+    var chooser = $("#choice");
+    $.each(data, function(key, val){
+        chooser.append(
+            $('<option>', {
+                value: key,
+                text: key   // NOTE: could also use val.chooserText if added to data
+            }, '</option>')
+        );
+    });
+    chooser.change();
+});
